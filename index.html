@@ -673,6 +673,39 @@
     }
 
     function showResults() {
+      document.getElementById('quiz').classList.remove('active');
+      document.getElementById('results').classList.add('active');
+
+      const totalScore = answers.reduce((sum, a) => sum + a.score, 0);
+      const maxScore = questions.reduce((sum, q) => sum + Math.max(...q.scores), 0);
+      const percentage = (totalScore / maxScore) * 100;
+
+      let currentLevel, potentialLevel, errors, diagnosis;
+
+      if (percentage >= 80) {
+        currentLevel = "800-900";
+        errors = "1-2";
+        diagnosis = "<strong>Você está no caminho certo!</strong> Mas com o método certo, pode facilmente chegar a 1000. Vamos lapidar sua redação?";
+      } else if (percentage >= 60) {
+        currentLevel = "700-800";
+        errors = "2-3";
+        diagnosis = "<strong>Você tem potencial!</strong> A nota 900+ está ao seu alcance. O que falta é a estrutura perfeita e técnicas de argumentação.";
+      } else if (percentage >= 40) {
+        currentLevel = "600-700";
+        errors = "3-4";
+        diagnosis = "<strong>Você está no nível intermediário.</strong> Mas pode pular para 900+ com as técnicas certas. Veja como no link abaixo:";
+      } else {
+        currentLevel = "400-600";
+        errors = "5+";
+        diagnosis = "<strong>Não se preocupe!</strong> Todo mundo pode alcançar 900+. Você só precisa do método certo. Clique abaixo para ver a solução:";
+      }
+
+      document.getElementById('current-score').textContent = currentLevel;
+      document.getElementById('error-count').textContent = errors;
+      document.getElementById('diagnosis-message').innerHTML = diagnosis;
+    }
+
+    function showSales() {
       window.location.href = 'https://pay.kiwify.com.br/3CTjEkY';
     }
 
