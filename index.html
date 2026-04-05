@@ -673,31 +673,7 @@
     }
 
     function showResults() {
-      document.getElementById('quiz').classList.remove('active');
-      document.getElementById('results').classList.add('active');
-
-      const totalScore = answers.reduce((sum, a) => sum + a.score, 0);
-      const maxScore = questions.reduce((sum, q) => sum + Math.max(...q.scores), 0);
-      const percentage = (totalScore / maxScore) * 100;
-
-      let currentLevel, potentialLevel, errors;
-
-      if (percentage >= 80) {
-        currentLevel = "800-900";
-        errors = "1-2";
-      } else if (percentage >= 60) {
-        currentLevel = "700-800";
-        errors = "2-3";
-      } else if (percentage >= 40) {
-        currentLevel = "600-700";
-        errors = "3-4";
-      } else {
-        currentLevel = "400-600";
-        errors = "5+";
-      }
-
-      document.getElementById('current-score').textContent = currentLevel;
-      document.getElementById('error-count').textContent = errors;
+      window.location.href = 'https://pay.kiwify.com.br/3CTjEkY';
     }
 
     function showSales() {
